@@ -27,11 +27,11 @@ input[type=submit]:hover {
 </head>
 <body>
     <h1>Login form</h1>
-    <form action="/login" method="GET">
+    <form action="/login" method="POST">
         <label for="email">Email:</label><br>
         <input type="text" id="email" name="email" class="form-control" required><br>
         <label for="pw">Password:</label><br>
-        <input type="text" id="pw" name="password" class="form-control" required minlength="8">
+        <input type="password" id="pw" name="password" class="form-control" required minlength="8">
         <input type="submit" value="Login"> 
     </form><br>
     <form action="/createNewUser" method="POST">

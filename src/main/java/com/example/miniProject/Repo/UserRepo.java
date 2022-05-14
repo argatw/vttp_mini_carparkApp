@@ -26,9 +26,21 @@ public class UserRepo {
 
     public boolean save(User user) {
         final int added = temp.update(
-            "insert into user (userId,email,password) values (?,?,?)"
+            "insert into user (userId,email,password) values (?,?,sha1(?))"
             ,user.getId(),user.getEmail(),user.getPassword()
         );
         return added > 0;
+    }
+
+   
+
+    public int getUserByEmailAndPassword(String email, String password) {
+        final SqlRowSet q = temp.queryForRowSet(
+            "select count(*) as user_count from user where email = ? and password = sha1(?)"
+                , email, password
+        );
+        if(!q.next())
+            return 0;
+        return q.getInt("user_count");
     }
 }
