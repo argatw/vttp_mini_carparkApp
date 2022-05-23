@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - master
-
+env:
+  LTA_API_KEY: ${{ secrets.lta_api_key }}
 jobs:
   step1:
     runs-on: ubuntu-latest
