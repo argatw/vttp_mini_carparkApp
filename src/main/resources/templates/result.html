@@ -41,17 +41,25 @@
 <body>
     <h1>Train line crowd levels</h1>
     <div class="center">
-        <table>
-            <tr th:each="stations : ${sList}">
-                <td>
-                    <div class="heading">Station: </div>
-                    <p th:text="${stations.station}"></p>
-                </td>
-                <td>
-                    <div class="heading">Crowd: </div>
-                    <p th:text="${stations.crowdLevel}"></p>
-                <td>
-            </tr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Station</th>
+                    <th scope="col">Crowd</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="stations : ${sList}">
+                    <td>
+                        <!-- <div class="heading">Station: </div> -->
+                        <p th:text="${stations.stationName}"></p>
+                    </td>
+                    <td>
+                        <!-- <div class="heading">Crowd: </div> -->
+                        <p th:text="${stations.crowdLevel}"></p>
+                    <td>
+                </tr>
+            </tbody>
         </table>
     </div>
     <form action="/" class="inline">

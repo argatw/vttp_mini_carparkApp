@@ -2,12 +2,16 @@ package com.example.miniProject.Controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.example.miniProject.Model.Station;
 import com.example.miniProject.Service.StationService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,6 +38,33 @@ public class StationController {
 
         return mvc;
         
+    }
+
+
+    @GetMapping(path="/protected/favourites")
+    public ModelAndView loginView(HttpSession sess){
+        ModelAndView mav = new ModelAndView();
+        String email = (String)sess.getAttribute("email");
+       
+        List<Station> favourites = stationService.getFavs(email);
+        mav.addObject("email", email);
+        mav.addObject("favourites", favourites);
+        mav.setViewName("favourites");
+        return mav;
+    }
+
+
+    @PostMapping(path="/addFav")
+    public ModelAndView addFavourite(@RequestBody MultiValueMap<String, String> form, HttpSession session){
+        ModelAndView mav = new ModelAndView();
+        String email = (String)session.getAttribute("email");
+        stationService.addFavourite(form, session);
+        List<Station> favourites = stationService.getFavs(email);
+        mav.addObject("favourites", favourites);
+        mav.addObject("email", email);
+        mav.setStatus(HttpStatus.OK);
+        mav.setViewName("favourites");
+        return mav;
     }
 
     

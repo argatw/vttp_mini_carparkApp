@@ -28,7 +28,7 @@ public class LoginController {
     }
 
     @PostMapping 
-    public ModelAndView userLogin(@RequestBody MultiValueMap<String,String> payload) {
+    public ModelAndView userLogin(@RequestBody MultiValueMap<String,String> payload, HttpSession session) {
         String email = payload.getFirst("email");
         String password = payload.getFirst("password");
 
@@ -40,6 +40,7 @@ public class LoginController {
             mvc.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
         } else {
             mvc.addObject("email", email);
+            session.setAttribute("email", email);
             mvc = new ModelAndView("redirect:/protected/favourites");
             // mvc.setViewName("home");
             // mvc.setStatus(HttpStatus.OK);

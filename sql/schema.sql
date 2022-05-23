@@ -11,11 +11,11 @@ create table user (
     -- primary key(userId);
 );
 
-create table carparkSearched ( 
+create table favourite ( 
     searchId int auto_increment,
     email varchar(64) not null, 
-    development varchar(128) not null,
-    availableLots int(5) not null,
+    trainLine varchar(64) not null,
+    station varchar(64) not null,
 
     primary key(searchId),
     constraint fk_email

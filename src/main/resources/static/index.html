@@ -3,7 +3,7 @@
     <style>
         input[type=submit] {
       width: 10%;
-      background-color: #4CAF50;
+      background-color: #22289a;
       color: white;
       padding: 14px 20px;
       margin: 8px 0;
@@ -11,9 +11,10 @@
       border-radius: 4px;
       cursor: pointer;
     }
+       
     
     input[type=submit]:hover {
-      background-color: #45a049;
+      background-color: #57439f;
     }
     </style>
 <head>
@@ -26,6 +27,11 @@
     <title>User Home</title>
 </head>
 <body>
+    <nav class="nav nav-tabs">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <!-- <a class="nav-link" href="/protected/favourites">Favourites</a> -->
+        <a class="nav-link" href="/login">Login/Register</a>
+    </nav>
     <h1>Welcome <span data-th-text="${email}"></span></h1><br>
     <form action="/search" method="GET">
         Carpark: <select name="trainLine" th:name="trainLine">
