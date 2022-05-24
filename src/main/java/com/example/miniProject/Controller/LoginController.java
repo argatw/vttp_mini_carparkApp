@@ -21,12 +21,6 @@ public class LoginController {
     @Autowired
     private UserService uSvc;
 
-    @GetMapping("/logout")
-    public String getLogout(HttpSession sess) {
-        sess.invalidate();
-        return "index";
-    }
-
     @PostMapping 
     public ModelAndView userLogin(@RequestBody MultiValueMap<String,String> payload, HttpSession session) {
         String email = payload.getFirst("email");
