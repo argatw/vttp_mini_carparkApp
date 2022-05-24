@@ -97,12 +97,18 @@ public class ControllerTests {
             .get("/protected/favourites")
             .sessionAttr("email", email))
             .andExpect(status().isOk());
-        // mMvc.perform(MockMvcRequestBuilders
-        //     .get("/protected/bookmarks"))
-        //     .andExpect(status().isUnauthorized());
     }
 
-    
+    @Test
+    void testAddFavourite() throws Exception{      
+        String email = "test@aol.com";       
+        mMvc.perform(MockMvcRequestBuilders
+            .post("/addFav")
+            .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+            .content("trainLine=CEL&station=Bayfront")
+            .sessionAttr("email", email))
+            .andExpect(status().isOk());          
+    }
 
     
 }
