@@ -2,7 +2,7 @@
 ### Pipeline 1
 [![Compile, Test](https://github.com/argatw/vttp_mini_stationApp/actions/workflows/main.yaml/badge.svg)](https://github.com/argatw/vttp_mini_stationApp/actions/workflows/main.yaml) 
 
-![Test Coverage](https://arga.sgp1.digitaloceanspaces.com/coverage/vttp_mini_stationApp/jacoco.svg)
+![Test Coverage](https://arga.sgp1.digitaloceanspaces.com/coverage/vttp_mini_stationApp/jacoco.svg?branch=master&kill_cache=1)
 (https://arga.sgp1.digitaloceanspaces.com/coverage/vttp_mini_stationApp/jacoco.svg)
 
 
