@@ -45,13 +45,13 @@ public class ControllerTests {
         mMvc.perform(MockMvcRequestBuilders
                 .post("/create")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-                .content("email=test@aol.com&password=testing123"))
+                .content("email=test1@aol.com&password=testing123"))
                 .andExpect(status().isOk());
 
         mMvc.perform(MockMvcRequestBuilders
                 .post("/auth")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-                .content("email=test@aol.com&password=testing123"))
+                .content("email=test1@aol.com&password=testing123"))
                 .andExpect(status().isFound());
 
     }
