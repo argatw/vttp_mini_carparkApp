@@ -9,5 +9,5 @@
 ### Pipeline 2
 [![Deploy to Heroku](https://github.com/argatw/vttp_mini_stationApp/actions/workflows/deploy.yaml/badge.svg)](https://github.com/argatw/vttp_mini_stationApp/actions/workflows/deploy.yaml)
 
-### Heroku Link
-https://arga-miniproject-train.herokuapp.com/
+### Deployment Link (Updated with Railway deployment)
+https://vttpministationapp-production.up.railway.app/
